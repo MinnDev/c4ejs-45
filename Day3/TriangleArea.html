@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var edge1 = Number(prompt('Nhập chiều dài cạnh thứ nhất: '));
+        var edge2 = Number(prompt('Nhập chiều dài cạnh thứ hai: '));
+        var edge3 = Number(prompt('Nhập chiều dài cạnh thứ ba: '));
+        if (edge1 <= 0 && edge2 <= 0 && edge3 <= 0 && ((edge1 + edge2) < edge3 || (edge1 + edge3) < edge2 || (edge2 + edge3) < edge1)) {
+            console.log('Đây không phải là 3 cạnh của một tam giác!');
+        } else {
+            var p = (edge1 + edge2 + edge3) / 2;
+            var dienTich = Math.sqrt(p * (p - edge1) * (p - edge2) * (p - edge3));
+            console.log(`Diện tích tam giác là ${dienTich}`);
+        }
+    </script>
+</body>
+</html>
