@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let numberInput = Number(prompt('Mời nhập một số bất kỳ: '));
+        // Nếu numberInput nhỏ hơn 2 thì không phải số nguyên tố
+        if ( numberInput < 2 ) {
+            console.log(`${numberInput} không phải là một số nguyên tố!`);
+        }
+        // Nếu numberInput bằng 2 thì là một số nguyên tố
+        if ( numberInput === 2 ) {
+            console.log(`${numberInput} là một số nguyên tố!`);
+        }
+        // Nếu numberInput bằng 3 thì là một số nguyên tố
+        if ( numberInput === 3 ) {
+            console.log(`${numberInput} là một số nguyên tố!`);
+        }
+        // Nếu numberInput là một số chẵn thì không phải là một số nguyên tố
+        if ( numberInput % 2 === 0 ) {
+            console.log(`${numberInput} không phải là một số nguyên tố!`);
+        }
+        // Lặp qua các số lẻ
+        for ( let i = 3; i < (numberInput-1); i += 2 ) {
+            if ( numberInput % i === 0 ) {
+                console.log(`${numberInput} không phải là một số nguyên tố!`);
+            } else {
+                console.log(`${numberInput} là một số nguyên tố!`);
+            }
+        }
+    </script>
+</body>
+</html>
