@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var contentOfArray = [];
+
+        //Used to entry 
+        function enterNameToArray() {
+            let Students =  Number(prompt('Enter number of student you want to entry: '));
+            for ( let i = 0; i < Students; i++ ) 
+            {
+                let name = prompt(`Enter name of student ${i+1}:`);
+                contentOfArray.push(name);
+            }
+        };
+
+        while( true ) 
+        {
+
+            let inputOperation = prompt('Please enter the operation you want to process: ');
+
+            //Exit
+            if ( inputOperation === 'Exit' ) break; 
+
+            //Operation Menu
+            switch( inputOperation ) 
+            {
+                case 'C': 
+                {
+                    enterNameToArray();
+                    break;
+                }
+                case 'R': 
+                {
+                    let numberStudent1 = Number(prompt('Enter order number of student you want to display: '));
+                    if ( contentOfArray[numberStudent1 - 1] === undefined ) 
+                    {
+                        //Em không biết điều kiện để check 1 phần tử trong mảng có giá trị anh ơi :(
+                        console.log(`There isn't student whose order number is ${numberStudent1}!`);
+                    } else 
+                    {
+                        alert(contentOfArray[numberStudent1 - 1]);
+                    }
+                    break;
+                }
+                case 'U': 
+                {
+                    let numberStudent2 = Number(prompt('Enter order number of student you want to update: '));
+                    if ( contentOfArray[numberStudent2 - 1] === undefined ) 
+                    {
+                        //Em không biết điều kiện để check 1 phần tử trong mảng có giá trị anh ơi :(
+                        console.log(`There isn't student whose order number is ${numberStudent2}!`);
+                    } else 
+                    {
+                        let newName = prompt('Please enter new name: ');
+                        contentOfArray[numberStudent2 - 1] = newName;
+                    }
+                    break;
+                }
+                case 'D': 
+                {
+                    let numberStudent3 = Number(prompt('Enter order number of student you want to delete: '));
+                    if ( contentOfArray[numberStudent3 - 1] === undefined ) 
+                    {
+                        //Em không biết điều kiện để check 1 phần tử trong mảng có giá trị anh ơi :(
+                        console.log(`There isn't student whose order number is ${numberStudent3}!`);
+                    } else 
+                    {
+                        contentOfArray.splice(numberStudent3 - 1, 1);
+                    }
+                    break;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html> 
