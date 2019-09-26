@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        var contentOfArray = [];
+
+        while( true ) 
+        {
+
+            let inputOperation = prompt('Please enter the operation you want to process(C/R/U/D/Exit)? ');
+
+            //Exit
+            if ( inputOperation === 'Exit' || inputOperation === 'exit' ) break; 
+
+            //Operation Menu
+            switch( inputOperation ) 
+            {
+                case 'c':
+                case 'C': 
+                {
+                    forCreate();
+                    break;
+                }
+                case 'r':
+                case 'R': 
+                {
+                    forRead();
+                    break;
+                }
+                case 'u':
+                case 'U': 
+                {
+                    forUpdate();
+                    break;
+                }
+                case 'd':
+                case 'D': 
+                {
+                    forDelete();
+                    break;
+                }
+                default:
+                    alert('You enter wrong input, please try again!')
+            }
+        }
+
+        //Used for C case 
+        function forCreate() {
+
+            let Students =  parseInt(prompt('Enter number of student you want to entry: '));
+
+            if ( Students === NaN) {
+                alert('Input is not invalid!');
+            } else {
+                for ( let i = 0; i < Students; i++ ) {
+                    let objectStudent = {};
+                    let nameOfStudent = prompt(`Enter name of student ${i+1}:`);
+                    let ageOfStudent = Number(prompt(`Enter age of student ${i+1}:`));
+                    let schoolOfStudent = prompt(`Enter school name of student ${i+1}:`);
+                    objectStudent.name = nameOfStudent;
+                    objectStudent.age = ageOfStudent;
+                    objectStudent.school = schoolOfStudent;
+                    contentOfArray.push(objectStudent);
+                }
+            }
+        };
+
+        //Used for R case
+        function forRead() {
+            let numberStudent1 = parseInt(prompt('Enter order number of student you want to display: '));
+            if ( numberStudent1 === NaN || numberStudent1 > contentOfArray.length || numberStudent1 < 0 ) {
+                alert(`There isn't student whose order number is ${numberStudent1}!`);
+            } else {
+                let nameToDisplay = contentOfArray[numberStudent1 - 1].name;
+                let ageToDisplay = contentOfArray[numberStudent1 - 1].age;
+                let schoolToDisplay = contentOfArray[numberStudent1 - 1].school;
+                alert(`name: ${nameToDisplay}, age: ${ageToDisplay}, school: ${schoolToDisplay}`);
+            }
+        };
+
+        //Used for U case
+        function forUpdate() {
+            let numberStudent2 = parseInt(prompt('Enter order number of student you want to update: '));
+            if ( numberStudent2 === NaN || numberStudent2 > contentOfArray.length || numberStudent2 < 0 ) {
+                alert(`There isn't student whose order number is ${numberStudent2}!`);
+            } else {
+                let newName = prompt('Enter new name: ');
+                let newAge = prompt('Enter new age: ');
+                let newSchool = prompt('Enter new name of school: ');
+                contentOfArray[numberStudent2 - 1].name = newName;
+                contentOfArray[numberStudent2 - 1].age = newAge;
+                contentOfArray[numberStudent2 - 1].school = newSchool;
+            }
+        };
+
+        //Used for D case
+        function forDelete() {
+            let numberStudent3 = parseInt(prompt('Enter order number of student you want to delete: '));
+            if ( numberStudent3 === NaN || numberStudent3 > contentOfArray.length || numberStudent3 < 0 ) {
+                alert(`There isn't student whose order number is ${numberStudent3}!`);
+            } else {
+                delete contentOfArray[numberStudent3 - 1];
+            }
+        };
+        
+    </script>
+</body>
+</html> 
