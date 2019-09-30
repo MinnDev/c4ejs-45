@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Max 2
+        myFunction1 = (x) => {
+            let maxOne = x[0];
+            let maxTwo;
+            for ( let i = 1; i < x.length; i++ ) {
+                if ( maxOne < x[i] ) {
+                    maxTwo = maxOne;
+                    maxOne = x[i];
+                }
+            }
+            return maxTwo;
+        };
+
+        console.log(myFunction1([1, 3, 2, 5, 6, 4]));
+
+        //Sorting
+        myFunction2 = (x) => {
+            let temp;
+            for ( let i = 0; i < x.length - 1; i++ ) {
+                for ( let j = 0; j < x.length; j++ ) {
+                    if ( x[j] > x[j+1] ) {
+                        temp = x[j];
+                        x[j] = x[j+1];
+                        x[j+1] = temp;
+                    }
+                }
+            }
+            return x;
+        };
+
+        console.log(myFunction2([6, 5, 4, 3, 2, 1]));//1, 5, 6, 4, 2, 3
+
+        //Palindrome 
+        myFunction3 = (x) => {
+            for ( let i = 0; i < x.length; i++ ) {
+                if ( x[i] !== x[x.length-i- 1] ) {
+                    let flag = 1;
+                    console.log(`${x} is not a palindrome string!`);
+                    break;
+                } else {
+                    console.log(`${x} is a palindrome string!`);
+                }
+            }
+        };
+
+        myFunction3('ducmanh');
+    </script>
+</body>
+</html>
