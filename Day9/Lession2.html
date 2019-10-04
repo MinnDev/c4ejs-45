@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul style="list-style-type: disc" id="listName">
+        <li class="peopleName">Đặng Đức Mạnh</li>
+        <li class="peopleName">Phạm Bảo Ngọc</li>
+        <li class="peopleName">Nguyễn Văn Ninh</li>
+    </ul>
+    <script>
+        while( true ) 
+        {
+
+            let inputOperation = prompt('Please enter the operation you want to process(C/R/U/D/Exit)? ');
+
+            //Exit
+            if ( inputOperation === 'Exit' || inputOperation === 'exit' ) break; 
+
+            //Operation Menu
+            switch( inputOperation ) 
+            {
+                case 'c':
+                case 'C': 
+                {
+                    let newName = prompt('Please enter new name you want to add!');
+                    document.getElementById("listName").innerHTML += `<li class="peopleName">${newName}</li>`;
+                    break;
+                }
+                case 'r':
+                case 'R': 
+                {
+                    let newNumber = prompt('Please enter number of name you want to read!');
+                    alert(document.getElementsByClassName("peopleName")[newNumber - 1].innerText);
+                    break;
+                }
+                case 'u':
+                case 'U': 
+                {
+                    let newNumber = prompt('Please enter number of name you want to update!');
+                    let newName = prompt('Please enter new name you want to update!');
+                    document.getElementsByClassName("peopleName")[newNumber - 1].innerText = newName;
+                    break;
+                }
+                case 'd':
+                case 'D': 
+                {
+                    let newNumber = prompt('Please enter number of name you want to delete!');
+                    document.getElementsByClassName("peopleName")[newNumber - 1].remove();
+                    break;
+                }
+                default:
+                    alert('You enter wrong input, please try again!')
+            }
+        }
+    </script>
+</body>
+</html>
